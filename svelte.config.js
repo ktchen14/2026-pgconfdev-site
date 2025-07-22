@@ -10,7 +10,7 @@ export default {
       routes: 'root',
     },
     paths: {
-      base: '/2026-pgconfdev-site',
+      /* base: '/2026-pgconfdev-site', */
     },
   },
 };
