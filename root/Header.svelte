@@ -1,5 +1,5 @@
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
   import { page } from '$app/state';
 
   import { Menu } from '@lucide/svelte';
@@ -8,8 +8,6 @@
   import Banner from './Banner.svelte';
   import Toggle from './Toggle.svelte';
 
-  let about = $state();
-  let attend = $state();
   let main = $state();
   let sponsor = $state();
 </script>
@@ -36,12 +34,6 @@
   @media (max-width: 767px) {
     #main-menu:not([data-open='true']) {
       display: none;
-    }
-  }
-
-  @media (min-width: 768px) {
-    [name='main-menu'] > menu {
-      padding-inline: 0;
     }
   }
 
@@ -78,23 +70,17 @@
       color: #033c6b;
     }
   }
-
-  header summary {
-    padding-inline-end: 2.25rem;
-  }
 </style>
 
 <header>
-  {#if page.route.id == '/'}<Banner />{/if}
-
   <nav class="matter">
     <div id="static">
-      <a class="logo" href={base || '/'}><PGConf size="1.75rem" /></a>
+      <a class="logo" href={resolve('/')}><PGConf size="1.75rem" /></a>
 
       <ul class="wide" role="list">
-        <li><Toggle bind:on={about}>About</Toggle></li>
-        <li><Toggle bind:on={attend}>Attend</Toggle></li>
-        <li><Toggle bind:on={sponsor}>Sponsors</Toggle></li>
+        <li><a href={resolve('/about')}>About</a></li>
+        <li><a href={resolve('/venue')}>Attend</a></li>
+        <li><a href={resolve('/sponsor')}>Sponsor</a></li>
       </ul>
 
       <Toggle
@@ -107,38 +93,12 @@
       </Toggle>
     </div>
 
-    <menu id="main-menu" data-open={main}>
-      <li>
-        <details name="main-menu" bind:open={about}>
-          <summary class="narrow">About the Conference</summary>
-
-          <menu>
-            <li><a href="{base}/about">What is PGConf.dev?</a></li>
-            <li><a href="{base}/code-of-conduct">Code of Conduct</a></li>
-            <li><a href="{base}/contact">Contact Us</a></li>
-          </menu>
-        </details>
-      </li>
-
-      <li>
-        <details name="main-menu" bind:open={attend}>
-          <summary class="narrow">Attend PGConf.dev 2026</summary>
-
-          <menu>
-            <li><a href="{base}/venue">Conference Venue</a></li>
-            <li><a href="{base}/travel">Travel Information</a></li>
-          </menu>
-        </details>
-      </li>
-      <li>
-        <details name="main-menu" bind:open={sponsor}>
-          <summary class="narrow">Sponsor PGConf.dev 2026</summary>
-
-          <menu>
-            <li><a href="{base}/sponsor-levels">Sponsorship Levels</a></li>
-          </menu>
-        </details>
-      </li>
+    <menu id="main-menu" class="narrow" data-open={main}>
+      <li><a href={resolve('/about')}>About the Conference</a></li>
+      <li><a href={resolve('/venue')}>Attend PGConf.dev 2026</a></li>
+      <li><a href={resolve('/sponsor')}>Sponsor Us</a></li>
     </menu>
   </nav>
+
+  {#if page.route.id == '/'}<Banner />{/if}
 </header>

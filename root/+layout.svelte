@@ -7,7 +7,6 @@
   import './site.css';
 
   import Header from './Header.svelte';
-  import Side from './Side.svelte';
   import Footer from './Footer.svelte';
 
   let { children } = $props();
@@ -24,21 +23,6 @@
     @media (min-width: 768px) {
       flex-direction: row;
     }
-  }
-
-  :global(main) {
-    hyphens: auto;
-    margin-block-end: 0;
-    text-align: justify;
-  }
-
-  :global(h1) {
-    text-align: center;
-  }
-
-  :global(h1 + p, .lead) {
-    font-size: 1.25em;
-    font-weight: 300;
   }
 </style>
 
@@ -60,8 +44,7 @@
 <Header />
 
 <div class="matter">
-  <main>{@render children()}</main>
-  <Side />
+  {@render children()}
 </div>
 
 <Footer />
