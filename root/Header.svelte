@@ -9,7 +9,6 @@
   import Toggle from './Toggle.svelte';
 
   let main = $state();
-  let sponsor = $state();
 </script>
 
 <style>
