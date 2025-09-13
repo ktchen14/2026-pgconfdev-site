@@ -1,5 +1,5 @@
 <script>
-  import { resolve } from '$app/paths';
+  import NavigationItem from '$lib/NavigationItem.svelte';
   import Side from '../Side.svelte';
 
   let { children } = $props();
@@ -7,9 +7,13 @@
 
 <nav>
   <menu>
-    <li><a href={resolve('/about')}>What is PGConf.dev?</a></li>
-    <li><a href={resolve('/about/code-of-conduct')}>Code of Conduct</a></li>
-    <li><a href={resolve('/about/contact')}>Contact Us</a></li>
+    <NavigationItem href='/about'>What is PGConf.dev?</NavigationItem>
+
+    <NavigationItem href='/about/code-of-conduct'>
+      Code of Conduct
+    </NavigationItem>
+
+    <NavigationItem href='/about/contact'>Contact Us</NavigationItem>
   </menu>
 </nav>
 
