@@ -451,6 +451,10 @@ nav {
     border-radius: var(--border-radius);
     outline-offset: 0.5rem;
     text-decoration: none;
+
+    &[aria-current] {
+      font-weight: 600;
+    }
   }
 
   :--button {
