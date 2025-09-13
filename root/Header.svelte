@@ -20,6 +20,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 0;
   }
 
   menu {
@@ -101,7 +102,7 @@
       </li>
       <li>
         <a href={resolve('/sponsor')}>
-          <span class="narrow">Become a </span>Sponsor
+          <span class="narrow">Become a</span> Sponsor
         </a>
       </li>
     </menu>
