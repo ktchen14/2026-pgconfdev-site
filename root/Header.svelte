@@ -25,15 +25,13 @@
 
   menu {
     padding-inline: 1rem;
-
-    @media (max-width: 767px) {
-      width: 100%;
-    }
+    width: 100%;
 
     @media (min-width: 768px) {
       display: flex;
       margin: 0;
       padding: 0;
+      width: auto;
     }
   }
 
