@@ -17,14 +17,24 @@
     line-height: 2;
   }
 
-  #static {
+  nav {
     display: flex;
-    gap: 1rem;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 
   menu {
     padding-inline: 1rem;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   #main-menu {
@@ -35,12 +45,6 @@
     #main-menu:not([data-open='true']) {
       display: none;
     }
-  }
-
-  ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
   }
 
   li {
@@ -74,29 +78,33 @@
 
 <header>
   <nav class="matter">
-    <div id="static">
-      <a class="logo" href={resolve('/')}><PGConf size="1.75rem" /></a>
+    <a class="logo" href={resolve('/')}><PGConf size="1.75rem" /></a>
 
-      <ul class="wide" role="list">
-        <li><a href={resolve('/about')}>About</a></li>
-        <li><a href={resolve('/venue')}>Attend</a></li>
-        <li><a href={resolve('/sponsor')}>Sponsor</a></li>
-      </ul>
+    <Toggle
+      bind:on={main}
+      class="narrow"
+      style="padding-inline: 0.625rem"
+      aria-label="Main Menu"
+    >
+      <Menu size="1.75rem" style="vertical-align: middle;" />
+    </Toggle>
 
-      <Toggle
-        bind:on={main}
-        class="narrow"
-        style="padding-inline: 0.625rem"
-        aria-label="Main Menu"
-      >
-        <Menu size="1.75rem" style="vertical-align: middle;" />
-      </Toggle>
-    </div>
-
-    <menu id="main-menu" class="narrow" data-open={main}>
-      <li><a href={resolve('/about')}>About the Conference</a></li>
-      <li><a href={resolve('/venue')}>Attend PGConf.dev 2026</a></li>
-      <li><a href={resolve('/sponsor')}>Sponsor Us</a></li>
+    <menu id="main-menu" data-open={main}>
+      <li>
+        <a href={resolve('/about')}>
+          About <span class="narrow">the Conference</span>
+        </a>
+      </li>
+      <li>
+        <a href={resolve('/venue')}>
+          Attend <span class="narrow">PGConf.dev 2026</span>
+        </a>
+      </li>
+      <li>
+        <a href={resolve('/sponsor')}>
+          <span class="narrow">Become a </span>Sponsor
+        </a>
+      </li>
     </menu>
   </nav>
 
