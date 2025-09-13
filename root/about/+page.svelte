@@ -1,5 +1,5 @@
 <script>
-  import { base } from '$app/paths';
+  import { resolve } from '$app/paths';
   import { LinkedIn, Mastodon } from '$lib/link';
 
   import Carousel from './Carousel.svelte';
@@ -77,7 +77,7 @@
 <h2>Volunteering</h2>
 
 <p>
-  Please <a href="{base}/contact">contact us</a> if you’d like to help organize,
+  Please <a href={resolve('/contact')}>contact us</a> if you’d like to help organize,
   or volunteer at, the conference. Volunteering is a great way to get more involved
   in the community, and we’d be happy to have you.
 </p>
