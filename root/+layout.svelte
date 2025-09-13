@@ -16,7 +16,7 @@
   .matter {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex-grow: 1;
     gap: 2rem;
     padding: 2rem;
 
