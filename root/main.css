@@ -414,79 +414,69 @@ summary[role='button'] {
 
 /********************************* Navigation *********************************/
 
-/* nav { */
-/*   align-items: baseline; */
-/*   display: flex; */
-/*   gap: 1rem; */
-/*   justify-content: space-between; */
-/* } */
+nav {
+  align-items: baseline;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 
-/* nav :is(menu, ol, ul) { */
-/*   padding-inline-start: 0; */
-/* } */
+  :is(menu, ol, ul) {
+    padding-inline-start: 0;
+  }
 
-/* nav menu { */
-/*   width: 100%; */
-/* } */
+  :is(ol, ul) {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-/* nav :is(ol, ul) { */
-/*   align-items: baseline; */
-/*   display: flex; */
-/*   flex-wrap: wrap; */
-/*   gap: 1rem; */
-/* } */
+  > * {
+    margin-block: 0;
+  }
 
-/* nav > * { */
-/*   margin-block: 0; */
-/* } */
+  li {
+    list-style-type: none;
+    margin-block: 0;
+  }
 
-/* nav li { */
-/*   list-style-type: none; */
-/*   margin-block: 0; */
-/* } */
+  ol > li:where(:not(:first-child))::before {
+    color: var(--mute-color);
+    content: '›';
+    padding-inline-end: 1rem;
+    position: static;
+  }
 
-/* nav menu > li:where(:not(:last-child)) { */
-/*   margin-block-end: 1rem; */
-/* } */
+  :--link {
+    border-radius: var(--border-radius);
+    outline-offset: 0.5rem;
+    text-decoration: none;
+  }
 
-/* nav ol > li:where(:not(:first-child))::before { */
-/*   color: var(--mute-color); */
-/*   content: '›'; */
-/*   padding-inline-end: 1rem; */
-/*   position: static; */
-/* } */
+  :--button {
+    padding: calc(0.5rem - var(--border-width)) 0.5rem;
+  }
 
-/* nav a:where(:not([role='button'])), */
-/* nav [role='link'] { */
-/*   outline-offset: 0.5rem; */
-/* } */
+  summary[role='button'] {
+    padding-inline-end: 2rem;
+  }
 
-/* nav a:not(:is(:active, :hover, :focus)), */
-/* nav [role='link']:not(:is(:active, :hover, :focus)) { */
-/*   text-decoration: none; */
-/* } */
+  menu {
+    width: 100%;
 
-/* nav menu > li > a { */
-/*   display: block; */
-/* } */
+    > li {
+      &:where(:not(:last-child)) {
+        margin-block-end: 1rem;
+      }
 
-/* nav button, */
-/* nav [role='button'], */
-/* nav [type='button'], */
-/* nav [type='reset'], */
-/* nav [type='submit'] { */
-/*   padding: calc(0.5rem - var(--border-width)) 0.5rem; */
-/* } */
+      > :--link {
+        display: block;
+      }
 
-/* nav summary[role='button'] { */
-/*   padding-inline-end: 2rem; */
-/* } */
-
-/* nav menu > li > button, */
-/* nav menu > li > [role='button'], */
-/* nav menu > li > [type='button'], */
-/* nav menu > li > [type='reset'], */
-/* nav menu > li > [type='submit'] { */
-/*   text-align: left; */
-/*   width: 100%; */
-/* } */
+      > :--button {
+        text-align: left;
+        width: 100%;
+      }
+    }
+  }
+}

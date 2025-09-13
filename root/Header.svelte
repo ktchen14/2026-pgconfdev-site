@@ -17,55 +17,35 @@
   }
 
   nav {
-    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 0 1rem;
     margin-bottom: 0;
   }
 
   menu {
-    padding-inline: 1rem;
-    width: 100%;
+    &:where(:not([data-open='true'])) {
+      display: none;
+    }
 
     @media (min-width: 768px) {
       display: flex;
-      margin: 0;
-      padding: 0;
       width: auto;
     }
-  }
 
-  #main-menu {
-    padding-inline: 0;
-  }
-
-  @media (max-width: 767px) {
-    #main-menu:not([data-open='true']) {
-      display: none;
+    > li {
+      margin-block-end: 0;
     }
   }
 
-  li {
-    list-style-type: none;
-    margin: 0;
-  }
-
-  header :global(:is(a, button, summary)) {
+  header :global(:is(a, button)) {
     background-color: unset;
-    border-radius: var(--border-radius);
     color: inherit;
     display: block;
     font-family: inherit;
     font-size: inherit;
-    margin: 0.5rem 0.25rem;
+    margin: 0.25rem 0.25rem;
     outline-offset: 0;
     padding: 0.5rem 0.75rem;
-    text-decoration: none;
-
-    :global(&[aria-pressed='true']),
-    :global([open] > &) {
-      background-color: rgba(255 255 255 / 15%);
-    }
 
     :global(&:is(:active, :focus, :hover)) {
       background-color: rgba(255 255 255 / 70%);
@@ -76,7 +56,7 @@
 
 <header>
   <nav class="matter">
-    <a class="logo" href={resolve('/')}><PGConf size="1.75rem" /></a>
+    <a href={resolve('/')}><PGConf size="1.75rem" /></a>
 
     <Toggle
       bind:on={main}
@@ -87,7 +67,7 @@
       <Menu size="1.75rem" style="vertical-align: middle;" />
     </Toggle>
 
-    <menu id="main-menu" data-open={main}>
+    <menu data-open={main}>
       <li>
         <a href={resolve('/about')}>
           About <span class="narrow">the Conference</span>
