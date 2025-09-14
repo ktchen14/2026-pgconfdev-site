@@ -18,6 +18,7 @@
     flex-direction: column;
     flex-grow: 1;
     gap: 2rem;
+    justify-content: space-between;
     padding: 2rem;
 
     @media (min-width: 768px) {

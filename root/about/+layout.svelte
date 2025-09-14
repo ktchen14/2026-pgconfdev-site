@@ -8,15 +8,20 @@
 <style>
   nav {
     margin-block-end: 0;
+
+    @media (width >= 768px) {
+      flex-basis: 12rem;
+    }
   }
 
   ul {
+    width: 100%;
+
     @media (width < 768px) {
       border-block-end: var(--border-width) solid var(--border-color);
       column-gap: 2rem;
       justify-content: space-evenly;
       padding-block-end: 2rem;
-      width: 100%;
     }
 
     @media (width >= 768px) {
@@ -36,6 +41,12 @@
         text-align: left;
         width: 100%;
       }
+    }
+  }
+
+  @media (width >= 768px) {
+    main {
+      flex-basis: 40rem;
     }
   }
 </style>
