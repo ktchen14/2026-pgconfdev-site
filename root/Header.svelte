@@ -23,11 +23,13 @@
   }
 
   menu {
+    width: 100%;
+
     &:where(:not([data-open='true'])) {
       display: none;
     }
 
-    @media (min-width: 768px) {
+    @media (width >= 768px) {
       display: flex;
       width: auto;
     }
