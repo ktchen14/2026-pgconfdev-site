@@ -5,12 +5,51 @@
   let { children } = $props();
 </script>
 
+<style>
+  nav {
+    margin-block-end: 0;
+  }
+
+  ul {
+    @media (width < 768px) {
+      border-block-end: var(--border-width) solid var(--border-color);
+      column-gap: 2rem;
+      justify-content: space-evenly;
+      padding-block-end: 2rem;
+      width: 100%;
+    }
+
+    @media (width >= 768px) {
+      border-inline-end: var(--border-width) solid var(--border-color);
+      display: unset;
+      padding-inline-end: 2rem;
+
+      :global(> li:where(:not(:last-child))) {
+        margin-block-end: 1rem;
+      }
+
+      :global(:--link) {
+        display: block;
+      }
+
+      :global(:--button) {
+        text-align: left;
+        width: 100%;
+      }
+    }
+  }
+</style>
+
 <nav>
-  <menu>
+  <ul>
     <MenuItem href="/about">What is PGConf.dev?</MenuItem>
     <MenuItem href="/about/code-of-conduct">Code of Conduct</MenuItem>
     <MenuItem href="/about/contact-us">Contact Us</MenuItem>
-  </menu>
+    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
+    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
+    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
+    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
+  </ul>
 </nav>
 
 <main>
