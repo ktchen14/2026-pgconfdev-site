@@ -452,7 +452,7 @@ nav {
     outline-offset: 0.5rem;
     text-decoration: none;
 
-    &[aria-current]:where(:not([aria-current=false])) {
+    &[aria-current]:where(:not([aria-current='false'])) {
       font-weight: 600;
     }
   }
