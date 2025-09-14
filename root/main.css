@@ -415,29 +415,39 @@ summary[role='button'] {
 /********************************* Navigation *********************************/
 
 nav {
-  align-items: baseline;
   display: flex;
   gap: 1rem;
   justify-content: space-between;
 
+  > * { margin-block: 0; }
+
   :is(menu, ol, ul) {
     padding-inline-start: 0;
+    list-style-type: none;
   }
 
   :is(ol, ul) {
-    align-items: baseline;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+
+    > * { margin-block: 0; }
   }
 
-  > * {
-    margin-block: 0;
-  }
+  menu {
+    > li:where(:not(:last-child)) {
+      margin-block-end: 1rem;
+    }
 
-  li {
-    list-style-type: none;
-    margin-block: 0;
+    :--link {
+      display: block;
+    }
+
+    :--button {
+      text-align: left;
+      width: 100%;
+    }
   }
 
   ol > li:where(:not(:first-child))::before {
@@ -463,24 +473,5 @@ nav {
 
   summary[role='button'] {
     padding-inline-end: 2rem;
-  }
-
-  menu {
-    width: 100%;
-
-    > li {
-      &:where(:not(:last-child)) {
-        margin-block-end: 1rem;
-      }
-
-      > :--link {
-        display: block;
-      }
-
-      > :--button {
-        text-align: left;
-        width: 100%;
-      }
-    }
   }
 }
