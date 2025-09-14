@@ -15,9 +15,7 @@
       display: flex;
       justify-content: space-between;
 
-      > * {
-        margin: 0;
-      }
+      > * { margin: 0; }
     }
   }
 </style>

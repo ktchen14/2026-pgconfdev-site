@@ -6,7 +6,7 @@
     text-align: center;
 
     @media (min-width: 768px) {
-      flex-basis: 16rem;
+      flex-basis: var(--flex-size);
     }
   }
 

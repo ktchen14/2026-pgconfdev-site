@@ -18,8 +18,8 @@
 
   nav {
     flex-wrap: wrap;
-    gap: 0 1rem;
     margin-bottom: 0;
+    row-gap: 0;
   }
 
   menu {

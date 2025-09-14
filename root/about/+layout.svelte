@@ -1,4 +1,5 @@
 <script>
+  import Menu from '../Menu.svelte';
   import { MenuItem } from '$lib/navigation';
   import Side from '../Side.svelte';
 
@@ -6,44 +7,6 @@
 </script>
 
 <style>
-  nav {
-    margin-block-end: 0;
-
-    @media (width >= 768px) {
-      flex-basis: 12rem;
-    }
-  }
-
-  ul {
-    width: 100%;
-
-    @media (width < 768px) {
-      border-block-end: var(--border-width) solid var(--border-color);
-      column-gap: 2rem;
-      justify-content: space-evenly;
-      padding-block-end: 2rem;
-    }
-
-    @media (width >= 768px) {
-      border-inline-end: var(--border-width) solid var(--border-color);
-      display: unset;
-      padding-inline-end: 2rem;
-
-      :global(> li:where(:not(:last-child))) {
-        margin-block-end: 1rem;
-      }
-
-      :global(:--link) {
-        display: block;
-      }
-
-      :global(:--button) {
-        text-align: left;
-        width: 100%;
-      }
-    }
-  }
-
   @media (width >= 768px) {
     main {
       flex-basis: 40rem;
@@ -51,20 +14,14 @@
   }
 </style>
 
-<nav>
-  <ul>
-    <MenuItem href="/about">What is PGConf.dev?</MenuItem>
-    <MenuItem href="/about/code-of-conduct">Code of Conduct</MenuItem>
-    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
-    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
-    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
-    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
-    <MenuItem href="/about/contact-us">Contact Us</MenuItem>
-  </ul>
-</nav>
+<Menu --flex-size='12rem'>
+  <MenuItem href="/about">What is PGConf.dev?</MenuItem>
+  <MenuItem href="/about/code-of-conduct">Code of Conduct</MenuItem>
+  <MenuItem href="/about/contact-us">Contact Us</MenuItem>
+</Menu>
 
 <main>
   {@render children()}
 </main>
 
-<Side />
+<Side --flex-size='16rem' />
